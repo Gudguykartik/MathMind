@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Results</title>
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+</head>
+<body>
+    <div class="grid-background"></div>
+    <div class="container">
+        {% if results.status == 'success' %}
+            {% for item in results.data %}
+                <div class="results-card">
+                    <div class="equation">
+                        <h2>Expression</h2>
+                        <div class="equation-display">{{ item.expr }}</div>
+                    </div>
+                    <div class="result">
+                        <h2>Result</h2>
+                        <div class="result-display">{{ item.result }}</div>
+                    </div>
+                    {% if item.assign %}
+                        <div class="badge">Variable Assignment</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="results-card">
+                <div class="error-message">
+                    {{ results.message|default:"No results available." }}
+                </div>
+            </div>
+        {% endif %}
+        <a href="/" class="back-link">← Back to Canvas</a>
+    </div>
+</body>
+</html>

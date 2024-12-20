@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
+
+.toolbar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: #2d2d2d;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tool {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool svg {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+}
+
+.tool:hover {
+    background-color: #3d3d3d;
+}
+
+.tool.active {
+    background-color: #4a4a4a;
+}
+
+.color-picker input {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+}
+
+.brush-size {
+    flex: 1;
+    max-width: 200px;
+}
+
+.brush-size input {
+    width: 100%;
+    cursor: pointer;
+}
+
+#clearBtn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#clearBtn:hover {
+    background-color: #ff6666;
+}
+
+#drawingCanvas {
+    flex: 1;
+    background-color: #000;
+    border-radius: 10px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.solve-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 100;
+}
+
+.solve-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.solve-button:active {
+    transform: translateY(0);
+}
+
+.solve-icon {
+    font-size: 24px;
+    animation: rotate 2s linear infinite;
+}
+
+.floating-equations {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    z-index: 90;
+}
+
+.equation {
+    position: absolute;
+    color: rgba(99, 102, 241, 0.3);
+    font-size: 24px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.equation:nth-child(1) {
+    animation-delay: 0s;
+    right: 60px;
+}
+
+.equation:nth-child(2) {
+    animation-delay: 0.5s;
+    right: 40px;
+}
+
+.equation:nth-child(3) {
+    animation-delay: 1s;
+    right: 20px;
+}
+
+.equation:nth-child(4) {
+    animation-delay: 1.5s;
+    right: 0;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.6;
+    }
+}
