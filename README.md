@@ -9,6 +9,7 @@ MathMind is an interactive web application that allows users to draw mathematica
 - Touch-screen and stylus support for better precision
 - Clear and reset canvas options
 - Adjustable pen thickness and color options
+![Learning Progress Page](./math1.png)
 
 ### 🧮 Math Recognition & Solving
 - Real-time recognition of handwritten mathematical expressions
@@ -19,6 +20,7 @@ MathMind is an interactive web application that allows users to draw mathematica
   - Calculus problems
   - Geometric calculations
   - Word problems
+  ![Learning Progress Page](./math2.png)
 
 ### ⚡ Real-time Interaction
 - Instant processing using HTMX
